@@ -11,20 +11,23 @@
 
 <body class="bg-gray-100">
   <header class="header">
-  <h1 class="logo">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" alt="Logo">
-    AIRBNB
-  </h1>
-  <nav>
-    <ul class="nav-links">
-      <li *ngIf="!isLoggedIn"><a [routerLink]="['/registrar']">Registrarse</a></li>
-      <li *ngIf="!isLoggedIn"><a [routerLink]="['/iniciar-sesion']">Iniciar Sesión</a></li>
-      <li *ngIf="isLoggedIn" class="font-semibold text-pink-500">Bienvenido, {{ userName }}</li>
-      <li *ngIf="isLoggedIn"><a class="logout-btn" [routerLink]="['/mis-reservas']">Mis Reservas</a></li>
-      <li *ngIf="isLoggedIn"><a class="logout-btn" (click)="logout()">Cerrar sesión</a></li>
-    </ul>
-  </nav>
-</header>
+    <h1 class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" alt="Logo">
+      AIRBNB
+    </h1>
+    <nav>
+      <ul class="nav-links">
+        <li *ngIf="!isLoggedIn"><a [routerLink]="['/registrar']">Registrarse</a></li>
+        <li *ngIf="!isLoggedIn"><a [routerLink]="['/iniciar-sesion']">Iniciar Sesión</a></li>
+        <li *ngIf="isLoggedIn" class="font-semibold text-pink-500">Bienvenido, {{ userName }}</li>
+
+        <li *ngIf="isLoggedIn"><a class="logout-btn" [routerLink]="['/perfil']">Perfil</a></li>
+
+        <li *ngIf="isLoggedIn"><a class="logout-btn" [routerLink]="['/mis-reservas']">Mis Reservas</a></li>
+        <li *ngIf="isLoggedIn"><a class="logout-btn" (click)="logout()">Cerrar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="content">
     <section>

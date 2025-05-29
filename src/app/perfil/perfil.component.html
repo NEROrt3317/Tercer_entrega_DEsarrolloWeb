@@ -4,30 +4,87 @@
     MiPerfil
   </h1>
   <nav>
-    <a routerLink="/home" class="logout-btn">← Inicio</a>
-  </nav>
+    <a routerLink="/" class="logout-btn">← Inicio</a>
+    </nav>
 </header>
 
 <main class="content">
-  <div class="profile-card" *ngIf="currentUser">
+  <div class="profile-card" *ngIf="currentUser && editedUser">
     <img
-      [src]="currentUser.avatarUrl || 'https://via.placeholder.com/150'"
-      alt="Avatar de {{ currentUser.name }}"
+      [src]="editedUser.avatarUrl || 'https://via.placeholder.com/150/cccccc/ffffff?text=Sin+Foto'"
+      alt="Avatar de {{ editedUser.name }}"
       class="avatar"
     />
 
-    <h2>{{ currentUser.name }}</h2>
+    <h2 *ngIf="!isEditing">{{ currentUser.name }}</h2>
+    <input
+      *ngIf="isEditing"
+      class="edit-input name-input"
+      type="text"
+      [(ngModel)]="editedUser.name"
+      placeholder="Nombre"
+    />
+
     <p class="info"><strong>Email:</strong> {{ currentUser.email }}</p>
-    <p class="info" *ngIf="currentUser.phone">
+
+    <p class="info" *ngIf="!isEditing && currentUser.phone">
       <strong>Teléfono:</strong> {{ currentUser.phone }}
     </p>
-    <p class="info" *ngIf="currentUser.address">
+    <input
+      *ngIf="isEditing"
+      class="edit-input"
+      type="text"
+      [(ngModel)]="editedUser.phone"
+      placeholder="Teléfono (opcional)"
+    />
+
+    <p class="info" *ngIf="!isEditing && currentUser.address">
       <strong>Dirección:</strong> {{ currentUser.address }}
     </p>
+    <input
+      *ngIf="isEditing"
+      class="edit-input"
+      type="text"
+      [(ngModel)]="editedUser.address"
+      placeholder="Dirección (opcional)"
+    />
 
-    <button class="edit-btn" routerLink="/perfil/editar">
-      ✏️ Editar Perfil
-    </button>
+    <div *ngIf="isEditing" class="info edit-input-container">
+      <label for="avatarUrlInput">URL del Avatar:</label>
+      <input
+        id="avatarUrlInput"
+        class="edit-input"
+        type="text"
+        [(ngModel)]="editedUser.avatarUrl"
+        placeholder="URL de la imagen de perfil"
+      />
+    </div>
+
+
+    <div class="profile-actions">
+      <button
+        *ngIf="!isEditing"
+        class="edit-btn"
+        (click)="startEditing()"
+      >
+        ✏️ Editar Perfil
+      </button>
+
+      <button
+        *ngIf="isEditing"
+        class="save-btn"
+        (click)="saveChanges()"
+      >
+        ✔️ Guardar Cambios
+      </button>
+      <button
+        *ngIf="isEditing"
+        class="cancel-btn"
+        (click)="cancelEditing()"
+      >
+        ✖️ Cancelar
+      </button>
+    </div>
   </div>
 
   <p *ngIf="!currentUser" class="no-user">
