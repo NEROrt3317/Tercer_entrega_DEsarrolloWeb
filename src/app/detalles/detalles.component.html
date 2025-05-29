@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de la Propiedad</title>
+  <link rel="stylesheet" href="/src/app/detalles/detalles.component.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" type="image/jpeg">
+</head>
+
+<body class="bg-gray-100">
+  <header class="header">
+    <h1 class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" alt="Logo">
+      AIRBNB
+    </h1>
+    <nav>
+      <a [routerLink]="['/page']" class="logout-btn">← Volver al Inicio</a>
+    </nav>
+  </header>
+
+  <main class="content" *ngIf="currentProperty">
+    <div class="property-details">
+      <img id="property-img" [src]="currentProperty.img" alt="Imagen de la propiedad">
+      <h2 id="property-title">{{ currentProperty.title }}</h2>
+      <p id="property-price">{{ currentProperty.price }}</p>
+      <p id="property-description">{{ currentProperty.description }}</p>
+      <p id="property-address">{{ currentProperty.address }}</p>
+
+      <ul class="amenities-list">
+        <li *ngFor="let amenity of currentProperty.amenities">{{ amenity }}</li>
+      </ul>
+
+      <a
+      [routerLink]="['/reserva']"[queryParams]="{ id: currentProperty.id, price: currentProperty.priceNumber }"id="reserve-btn"class="logout-btn">Reservar</a>
+
+
+      <section class="feedback-section">
+        <h3>Comentarios y Calificaciones</h3>
+        <div *ngIf="feedback.length > 0; else noFeedback">
+          <div *ngFor="let fb of feedback" class="feedback-item">
+            <p><strong>Usuario:</strong> {{ fb.user_name || 'Anónimo' }}</p>
+            <p><strong>Calificación:</strong> ⭐ {{ fb.rating }}/5</p>
+            <p><strong>Comentario:</strong> {{ fb.comment }}</p>
+          </div>
+        </div>
+        <ng-template #noFeedback>
+          <p>No hay comentarios aún.</p>
+        </ng-template>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 AIRBNB. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

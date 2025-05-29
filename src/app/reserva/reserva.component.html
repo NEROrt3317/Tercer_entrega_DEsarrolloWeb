@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservar Propiedad</title>
+  <link rel="stylesheet" href="/src/app/reserva/reserva.component.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" type="image/jpeg">
+</head>
+
+  <body class="bg-gray-100">
+    <header class="header">
+    <h1 class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" alt="Logo">
+      AIRBNB
+    </h1>
+    <nav>
+      <a [routerLink]="['/page']" class="logout-btn">← Volver al Inicio</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <div class="property-details">
+      <div id="payment-form" class="payment-form">
+        <h3>Pasarela</h3>
+
+        <form id="payment-details" class="payment-details">
+          <div class="form-group">
+            <label for="card-number">Número de Tarjeta:</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+          </div>
+          <div class="form-group">
+            <label for="card-expiry">Fecha de Expiración:</label>
+            <input type="text" id="card-expiry" placeholder="MM/YY" required>
+          </div>
+          <div class="form-group">
+            <label for="card-cvc">CVC:</label>
+            <input type="text" id="card-cvc" placeholder="123" required>
+          </div>
+          
+          <div class="form-group">
+            <p id="reservation-details">Detalles de la reserva:</p>
+            <p id="subtotal">Subtotal: $0</p>
+          </div>
+          <p *ngIf="successMessage" class="text-green-600 font-semibold text-center mt-2">{{ successMessage }}</p>
+          <p *ngIf="errorMessage" class="text-red-600 font-semibold text-center mt-2">{{ errorMessage }}</p>
+          <button type="button" class="back-btn" (click)="pagar()">PAGAR</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 AIRBNB. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="path/to/reserva.component.ts"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+/* General */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ec4899;
+}
+
+.logo img {
+  width: 32px;
+  height: 32px;
+}
+
+nav .back-btn {
+  text-decoration: none;
+  color: #4b5563;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav .back-btn:hover {
+  color: #ec4899;
+}
+
+/* Main content */
+.content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.property-details {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 800px;
+  text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.property-details img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.property-details h2 {
+  font-size: 1.75rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.property-details p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+/* Lista de amenidades */
+.amenities-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.amenities-list li {
+  margin: 0.25rem 0;
+  color: #6b7280;
+}
+
+
+/* Botón de reserva */
+#reserve-btn {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #ec4899;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+#reserve-btn:hover {
+  background-color: #db2777;
+}
+
+/* Comentarios */
+.property-details h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: #1f2937;
+  font-weight: bold;
+}
+
+#feedback-section {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.feedback-item {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin: 0.5rem auto;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer */
+.footer {
+  background-color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+.logout-btn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: #ec4899;
+  border: 2px solid #ec4899;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.logout-btn:hover {
+  background-color: #ec4899;
+  color: #ffffff;
+  border-color: #db2777;
+}
+
+#property-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,160 @@
+/* Reutilizamos el estilo global de la app */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header ya definido en tu global */
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  width: 32px;
+  height: 32px;
+}
+
+.logo h1, .logo {
+  color: #ec4899;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.logout-btn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: #ec4899;
+  border: 2px solid #ec4899;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #ec4899;
+  color: #ffffff;
+  border-color: #db2777;
+}
+
+/* Content */
+.content {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Form */
+.payment-form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  max-width: 600px;
+  width: 100%;
+}
+
+.payment-form h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: #1f2937;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+.rating {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.rating i {
+  font-size: 2rem;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.rating i.selected {
+  color: #ec4899;
+}
+
+button.reserve-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #ec4899;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+button.reserve-btn:hover {
+  background-color: #db2777;
+}
+
+/* Alertas */
+.alert-error {
+  margin-top: 1rem;
+  color: #b91c1c;
+  text-align: center;
+}
+
+.alert-success {
+  margin-top: 1rem;
+  color: #047857;
+  text-align: center;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.rating span {
+  font-size: 2rem;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.rating span.selected {
+  color: #ec4899;
+}

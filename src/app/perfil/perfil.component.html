@@ -1,0 +1,36 @@
+<header class="header">
+  <h1 class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Logo" />
+    MiPerfil
+  </h1>
+  <nav>
+    <a routerLink="/home" class="logout-btn">← Inicio</a>
+  </nav>
+</header>
+
+<main class="content">
+  <div class="profile-card" *ngIf="currentUser">
+    <img
+      [src]="currentUser.avatarUrl || 'https://via.placeholder.com/150'"
+      alt="Avatar de {{ currentUser.name }}"
+      class="avatar"
+    />
+
+    <h2>{{ currentUser.name }}</h2>
+    <p class="info"><strong>Email:</strong> {{ currentUser.email }}</p>
+    <p class="info" *ngIf="currentUser.phone">
+      <strong>Teléfono:</strong> {{ currentUser.phone }}
+    </p>
+    <p class="info" *ngIf="currentUser.address">
+      <strong>Dirección:</strong> {{ currentUser.address }}
+    </p>
+
+    <button class="edit-btn" routerLink="/perfil/editar">
+      ✏️ Editar Perfil
+    </button>
+  </div>
+
+  <p *ngIf="!currentUser" class="no-user">
+    Cargando perfil…
+  </p>
+</main>

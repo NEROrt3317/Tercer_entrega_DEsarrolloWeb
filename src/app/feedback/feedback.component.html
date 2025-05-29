@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Reserva</title>
+</head>
+
+<body class="bg-gray-100">
+  <header class="header">
+    <h1 class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" alt="Logo" />
+      AIRBNB
+    </h1>
+    <nav>
+      <a [routerLink]="['/mis-reservas']" class="logout-btn">← Volver al Inicio</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <div class="payment-form">
+      <h3>Deja tu Feedback</h3>
+
+      <form (ngSubmit)="enviarFeedback()">
+        <div class="form-group">
+          <label for="comments">Comentarios:</label>
+          <textarea
+            id="comments"
+            rows="4"
+            [(ngModel)]="comment"
+            name="comment"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="rating">Calificación:</label>
+          <div class="rating">
+            <span
+              *ngFor="let star of [1,2,3,4,5]"
+              (click)="seleccionarEstrella(star)"
+              [class.selected]="star <= rating"
+            >
+              ★
+            </span>
+          </div>
+        </div>
+
+        <button type="submit" class="reserve-btn">Enviar Feedback</button>
+      </form>
+
+      <p *ngIf="errorMessage" class="alert-error">{{ errorMessage }}</p>
+      <p *ngIf="successMessage" class="alert-success">{{ successMessage }}</p>
+    </div>
+  </main>
+</body>
+</html>

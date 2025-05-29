@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIRBNB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/src/app/page/page.component.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" type="image/jpeg">
+</head>
+
+<body class="bg-gray-100">
+  <header class="header">
+  <h1 class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" alt="Logo">
+    AIRBNB
+  </h1>
+  <nav>
+    <ul class="nav-links">
+      <li *ngIf="!isLoggedIn"><a [routerLink]="['/registrar']">Registrarse</a></li>
+      <li *ngIf="!isLoggedIn"><a [routerLink]="['/iniciar-sesion']">Iniciar Sesión</a></li>
+      <li *ngIf="isLoggedIn" class="font-semibold text-pink-500">Bienvenido, {{ userName }}</li>
+      <li *ngIf="isLoggedIn"><a class="logout-btn" [routerLink]="['/mis-reservas']">Mis Reservas</a></li>
+      <li *ngIf="isLoggedIn"><a class="logout-btn" (click)="logout()">Cerrar sesión</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main class="content">
+    <section>
+      <h2 class="section-title">Propiedades Disponibles</h2>
+      <div class="grid-container">
+        <div class="card" *ngFor="let property of properties">
+          <img [src]="property.imageUrl" [alt]="property.title">
+          <h3>{{ property.title }}</h3>
+          <p>{{ property.description }}</p>
+          <br>
+          <a [routerLink]="['/detalles']" [queryParams]="{ id: property.id }" class="reserve-btn">Ver más</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 AIRBNB. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

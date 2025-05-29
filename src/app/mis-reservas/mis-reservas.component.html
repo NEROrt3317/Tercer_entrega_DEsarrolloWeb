@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Reservas</title>
+  <link rel="stylesheet" href="/src/app/mis-reservas/mis-reservas.component.css" />
+</head>
+
+<body class="bg-gray-100">
+  <header class="header">
+    <h1 class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" alt="Logo" />
+      AIRBNB
+    </h1>
+    <nav>
+      <a [routerLink]="['/page']" class="logout-btn">← Volver al Inicio</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h2 class="section-title">Mis Reservas</h2>
+
+    <div *ngIf="reservations.length > 0; else noRes" class="grid-container">
+      <div *ngFor="let r of reservations" class="card">
+        <img [src]="r.img" [alt]="r.property_name" />
+        <h3>{{ r.property_name }}</h3>
+        <a
+          *ngIf="r.coordinates"
+          [href]="'https://www.google.com/maps/dir/?api=1&destination=' + r.coordinates[0] + ',' + r.coordinates[1]"
+          target="_blank"
+          class="directions-btn"
+        >
+          Cómo llegar
+        </a>
+
+        <button
+          (click)="leaveFeedback(r)"
+          class="directions-btn"
+        >
+          Dejar Feedback
+        </button>
+      </div>
+    </div>
+
+    <ng-template #noRes>
+      <p class="no-reservations">No tienes reservas aún.</p>
+    </ng-template>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 AIRBNB. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
